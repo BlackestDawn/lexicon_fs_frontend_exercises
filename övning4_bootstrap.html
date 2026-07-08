@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dashboard for SmartParking AB administrative pages.">
+    <title>SmartPark Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container-fluid">
+    <div class="row">
+      <header class="text-center text-white bg-dark py-2">
+        <h1>SmartParking Administratörssida</h1>
+      </header>
+    </div>
+
+    <div class="row">
+      <section class="col-12 col-md-3 order-0">
+        <nav class="px-3 py-4">
+          <ul class="nav nav-pills justify-content-center flex-md-column gap-2">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-current="page"
+                >Översikt</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Kameravyer</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Prisinställningar</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <div class="col-12 col-md-9 d-flex flex-column px-0">
+        <main class="flex-grow-1 py-2 px-2">
+          <h2>Garageplan A - Status</h2>
+          <div class="container mb-4">
+            <div class="row row-cols-1 row-cols-md-3 g-3">
+              <div class="col">
+                <div class="card h-100" style="border-left: 4px solid var(--bs-success);">
+                  <div class="card-body">
+                    <p class="text-muted mb-1">Dagens intäkter</p>
+                    <p class="fs-3 fw-bold mb-0">4 500 kr</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100" style="border-left: 4px solid var(--bs-primary);">
+                  <div class="card-body">
+                    <p class="text-muted mb-1">Aktuell beläggning</p>
+                    <p class="fs-3 fw-bold mb-0">87%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100" style="border-left: 4px solid var(--bs-danger);">
+                  <div class="card-body">
+                    <p class="text-muted mb-1">Felanmälda rutor</p>
+                    <p class="d-flex justify-content-between align-items-center mb-0">
+                      <span class="fs-3 fw-bold">3 st</span>
+                      <span class="badge text-bg-danger">
+                        Åtgärd krävs
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Senaste Aktiviteter</h3>
+          <div class="table-responsive mb-4">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Registreringsnr</th>
+                  <th>Tid incheckad</th>
+                  <th>Ruta</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-uppercase">gty-629</td>
+                  <td>2026-07-08 16:30</td>
+                  <td>34</td>
+                  <td><span class="badge text-bg-success">Aktiv</span></td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase">dvg-329</td>
+                  <td>2026-07-08 16:27</td>
+                  <td>59</td>
+                  <td><span class="badge text-bg-success">Aktiv</span></td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase">tyc-610</td>
+                  <td>2026-07-08 15:30</td>
+                  <td>63</td>
+                  <td><span class="badge text-bg-secondary">Avslutad</span></td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase">wbp-548</td>
+                  <td>2026-07-08 15:21</td>
+                  <td>12</td>
+                  <td><span class="badge text-bg-success">Aktiv</span></td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase">hqa-557</td>
+                  <td>2026-07-08 14:57</td>
+                  <td>32</td>
+                  <td><span class="badge text-bg-success">Aktiv</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Aktuella felanmälningar</h3>
+          <div class="mb-4">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <p><span class="text-danger">Ruta 16: </span>Lampa trasig</p>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#confirmModal"
+                    data-ruta="16"
+                    data-fel="Lampa trasig"
+                  >
+                    Åtgärda
+                  </button>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <p>
+                    <span class="text-danger">Ruta 02: </span>Laddstolpe trasig
+                  </p>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#confirmModal"
+                    data-ruta="02"
+                    data-fel="Laddstolpe trasig"
+                  >
+                    Åtgärda
+                  </button>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <p>
+                    <span class="text-danger">Ruta 42: </span>Markeringar saknas
+                  </p>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#confirmModal"
+                    data-ruta="42"
+                    data-fel="Markeringar saknas"
+                  >
+                    Åtgärda
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="confirmModal"
+            tabindex="-1"
+            aria-labelledby="confirmModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title fs-5" id="confirmModalLabel">Bekräfta årgärd slutförd</h3>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Stäng"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    Bekräfta att felet vid <span id="modalRuta"></span> har
+                    åtgärdats.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Avbryt
+                  </button>
+                  <button type="button" id="confirmFix" class="btn btn-primary">
+                    Bekräfta
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="text-center text-white bg-dark pt-2">
+          <p>2026 SmartParking AB - Internkontroll</p>
+        </footer>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const confirmModal = document.getElementById("confirmModal");
+      confirmModal.addEventListener("show.bs.modal", (event) => {
+        const button = event.relatedTarget; // the button that was clicked
+        const ruta = button.getAttribute("data-ruta");
+        const fel = button.getAttribute("data-fel");
+
+        document.getElementById("modalRuta").textContent =
+          `ruta ${ruta} (${fel})`;
+      });
+    </script>
+  </body>
+</html>
