@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@theme {
+  --color-smart-red: #991b1b;
+  --color-smart-green: #13532d;
+  --color-smart-accent: #4338ca;
+}
