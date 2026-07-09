@@ -21,16 +21,22 @@
       >
         <nav class="px-3 py-4">
           <ul class="flex md:flex-col gap-2 grow">
-            <li class="border rounded-md bg-blue-600 text-amber-50 p-1.5 md:pl-4">
-              <a href="#" class="" aria-current="page"
+            <li
+              class="border rounded-md bg-blue-600 text-amber-50 p-1.5 md:pl-4 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-smart-accent"
+            >
+              <a href="#" class="focus:outline-none" aria-current="page"
                 >Översikt</a
               >
             </li>
-            <li class="border rounded-md border-gray-600 p-1.5 md:pl-4">
-              <a href="#" class="">Kameravyer</a>
+            <li
+              class="border rounded-md border-gray-600 p-1.5 md:pl-4 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-smart-accent"
+            >
+              <a href="#" class="focus:outline-none">Kameravyer</a>
             </li>
-            <li class="border rounded-md border-gray-600 p-1.5 md:pl-4">
-              <a href="#" class="">Prisinställningar</a>
+            <li
+              class="border rounded-md border-gray-600 p-1.5 md:pl-4 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-smart-accent"
+            >
+              <a href="#" class="focus:outline-none">Prisinställningar</a>
             </li>
           </ul>
         </nav>
@@ -57,13 +63,13 @@
               </div>
             </div>
             <div
-              class="grow h-25 border rounded-md border-l-4 border-l-red-600 p-2"
+              class="grow h-25 border rounded-md border-l-4 border-l-smart-red p-2"
             >
               <div class="md:px-4">
                 <p class="font-light mb-1">Felanmälda rutor</p>
                 <p class="flex justify-between items-center mb-0">
                   <span class="text-2xl font-bold">3 st</span>
-                  <span class="text-white bg-red-600 p-2 rounded-sm"
+                  <span class="text-white bg-smart-red p-2 rounded-lg"
                     >Åtgärd krävs</span
                   >
                 </p>
@@ -73,7 +79,9 @@
 
           <h3 class="text-2xl font-bold pb-4">Senaste Aktiviteter</h3>
           <div class="flex grow pb-4 pl-4 pr-8">
-            <table class="table-auto border-separate border-spacing-y-1 grow">
+            <table
+              class="table-auto grow"
+            >
               <thead>
                 <tr class="text-left">
                   <th>Registreringsnr</th>
@@ -82,49 +90,71 @@
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="odd:bg-gray-100 even:bg-white">
-                  <td class="border-t border-gray-500 uppercase py-2">gty-629</td>
-                  <td class="border-t border-gray-500 py-2">2026-07-08 16:30</td>
-                  <td class="border-t border-gray-500 py-2">34</td>
-                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-green-700 py-1 px-2 rounded-sm">Aktiv</span></td>
+              <tbody class="[&>tr:not(:last-child)>td]:border-b [&>tr:not(:last-child)>td]:border-slate-400">
+                <tr class="hover:bg-slate-200 odd:bg-slate-100">
+                  <td class="uppercase py-2">gty-629</td>
+                  <td class="py-2">2026-07-08 16:30</td>
+                  <td class="py-2">34</td>
+                  <td class="py-2">
+                    <span class="text-white bg-smart-green py-1 px-2 rounded-lg"
+                      ><span class="sr-only">Status:</span>Aktiv</span
+                    >
+                  </td>
                 </tr>
-                <tr class="odd:bg-gray-100 even:bg-white">
-                  <td class="border-t border-gray-500 uppercase py-2">dvg-329</td>
-                  <td class="border-t border-gray-500 py-2">2026-07-08 16:27</td>
-                  <td class="border-t border-gray-500 py-2">59</td>
-                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-green-700 py-1 px-2 rounded-sm">Aktiv</span></td>
+                <tr class="hover:bg-slate-200 odd:bg-slate-100">
+                  <td class="uppercase py-2">dvg-329</td>
+                  <td class="py-2">2026-07-08 16:27</td>
+                  <td class="py-2">59</td>
+                  <td class="py-2">
+                    <span class="text-white bg-smart-green py-1 px-2 rounded-lg"
+                      ><span class="sr-only">Status:</span>Aktiv</span
+                    >
+                  </td>
                 </tr>
-                <tr class="odd:bg-gray-100 even:bg-white">
-                  <td class="border-t border-gray-500 uppercase py-2">tyc-610</td>
-                  <td class="border-t border-gray-500 py-2">2026-07-08 15:30</td>
-                  <td class="border-t border-gray-500 py-2">63</td>
-                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-gray-600 py-1 px-2 rounded-sm">Avslutad</span></td>
+                <tr class="hover:bg-slate-200 odd:bg-slate-100">
+                  <td class="uppercase py-2">tyc-610</td>
+                  <td class="py-2">2026-07-08 15:30</td>
+                  <td class="py-2">63</td>
+                  <td class="py-2">
+                    <span class="text-white bg-gray-600 py-1 px-2 rounded-lg"
+                      ><span class="sr-only">Status:</span>Avslutad</span
+                    >
+                  </td>
                 </tr>
-                <tr class="odd:bg-gray-100 even:bg-white">
-                  <td class="border-t border-gray-500 uppercase py-2">wbp-548</td>
-                  <td class="border-t border-gray-500 py-2">2026-07-08 15:21</td>
-                  <td class="border-t border-gray-500 py-2">12</td>
-                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-green-700 py-1 px-2 rounded-sm">Aktiv</span></td>
+                <tr class="hover:bg-slate-200 odd:bg-slate-100">
+                  <td class="uppercase py-2">wbp-548</td>
+                  <td class="py-2">2026-07-08 15:21</td>
+                  <td class="py-2">12</td>
+                  <td class="py-2">
+                    <span class="text-white bg-smart-green py-1 px-2 rounded-lg"
+                      ><span class="sr-only">Status:</span>Aktiv</span
+                    >
+                  </td>
                 </tr>
-                <tr class="odd:bg-gray-100 even:bg-white">
-                  <td class="border-t border-gray-500 uppercase py-2">hqa-557</td>
-                  <td class="border-t border-gray-500 py-2">2026-07-08 14:57</td>
-                  <td class="border-t border-gray-500 py-2">32</td>
-                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-green-700 py-1 px-2 rounded-sm">Aktiv</span></td>
+                <tr class="hover:bg-slate-200 odd:bg-slate-100">
+                  <td class="uppercase py-2">hqa-557</td>
+                  <td class="py-2">2026-07-08 14:57</td>
+                  <td class="py-2">32</td>
+                  <td class="py-2">
+                    <span class="text-white bg-smart-green py-1 px-2 rounded-lg"
+                      ><span class="sr-only">Status:</span>Aktiv</span
+                    >
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <h3 class="text-2xl font-bold pb-4">Aktuella felanmälningar</h3>
-          <ul class="flex flex-col gap-2 px-4 mb-4">
-            <li class="border-b border-gray-200 pb-2">
-              <div class="flex justify-between">
-                <p><span class="text-red-600">Ruta 16: </span>Lampa trasig</p>
+          <ul class="flex flex-col px-4 mb-4 divide-y divide-slate-400">
+            <li class="hover:bg-slate-200 p-2">
+              <div class="flex justify-between align-middle">
+                <p class="inline-block align-middle">
+                  <span class="text-smart-red">Ruta 16: </span>Lampa trasig
+                </p>
                 <button
                   type="button"
-                  class="text-white bg-red-600 p-2 rounded-sm js-open-modal"
+                  class="text-white bg-smart-red p-2 rounded-lg js-open-modal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   data-ruta="16"
                   data-fel="Lampa trasig"
                 >
@@ -132,14 +162,14 @@
                 </button>
               </div>
             </li>
-            <li class="border-b border-gray-200 pb-2">
+            <li class="hover:bg-slate-200 p-2">
               <div class="flex justify-between">
                 <p>
-                  <span class="text-red-600">Ruta 02: </span>Laddstolpe trasig
+                  <span class="text-smart-red">Ruta 02: </span>Laddstolpe trasig
                 </p>
                 <button
                   type="button"
-                  class="text-white bg-red-600 p-2 rounded-sm js-open-modal"
+                  class="text-white bg-smart-red p-2 rounded-lg js-open-modal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   data-ruta="02"
                   data-fel="Laddstolpe trasig"
                 >
@@ -147,14 +177,15 @@
                 </button>
               </div>
             </li>
-            <li class="pb-2">
+            <li class="hover:bg-slate-200 p-2">
               <div class="flex justify-between">
                 <p>
-                  <span class="text-red-600">Ruta 42: </span>Markeringar saknas
+                  <span class="text-smart-red">Ruta 42: </span>Markeringar
+                  saknas
                 </p>
                 <button
                   type="button"
-                  class="text-white bg-red-600 p-2 rounded-sm js-open-modal"
+                  class="text-white bg-smart-red p-2 rounded-lg js-open-modal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   data-ruta="42"
                   data-fel="Markeringar saknas"
                 >
@@ -175,14 +206,16 @@
             aria-hidden="true"
           >
             <div class="bg-white rounded-md shadow-lg w-full max-w-md mx-4">
-              <div class="flex items-center justify-between border-b border-gray-200 p-4">
+              <div
+                class="flex items-center justify-between border-b border-gray-200 p-4"
+              >
                 <h3 class="text-lg font-semibold" id="confirmModalLabel">
                   Bekräfta åtgärd slutförd
                 </h3>
                 <button
                   type="button"
-                  id="modalClose"
-                  class="text-gray-500 hover:text-gray-800 text-xl leading-none"
+                  id="closeFix"
+                  class="text-gray-500 hover:text-gray-800 text-xl leading-none focus:ring-2 focus:ring-offset-2 focus:ring-smart-accent"
                   aria-label="Stäng"
                 >
                   &times;
@@ -197,15 +230,15 @@
               <div class="flex justify-end gap-2 border-t border-gray-200 p-4">
                 <button
                   type="button"
-                  id="modalCancel"
-                  class="px-4 py-2 rounded-md border border-gray-400"
+                  id="cancelFix"
+                  class="px-4 py-2 rounded-md border border-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-smart-accent"
                 >
                   Avbryt
                 </button>
                 <button
                   type="button"
                   id="confirmFix"
-                  class="px-4 py-2 rounded-md bg-blue-600 text-white"
+                  class="px-4 py-2 rounded-md bg-blue-600 text-white focus:ring-2 focus:ring-offset-2 focus:ring-smart-accent"
                 >
                   Bekräfta
                 </button>
@@ -222,6 +255,7 @@
     <script>
       const confirmModal = document.getElementById("confirmModal");
       const modalRuta = document.getElementById("modalRuta");
+      const confirmFix = document.getElementById("confirmFix");
 
       function openModal(button) {
         const ruta = button.getAttribute("data-ruta");
@@ -231,6 +265,7 @@
         confirmModal.classList.remove("hidden");
         confirmModal.classList.add("flex");
         confirmModal.setAttribute("aria-hidden", "false");
+        confirmFix.focus();
       }
 
       function closeModal() {
@@ -243,13 +278,17 @@
         button.addEventListener("click", () => openModal(button));
       });
 
-      document.getElementById("modalClose").addEventListener("click", closeModal);
-      document.getElementById("modalCancel").addEventListener("click", closeModal);
+      document.getElementById("closeFix").addEventListener("click", closeModal);
+      document
+        .getElementById("cancelFix")
+        .addEventListener("click", closeModal);
       confirmModal.addEventListener("click", (event) => {
         if (event.target === confirmModal) closeModal();
       });
 
-      document.getElementById("confirmFix").addEventListener("click", closeModal);
+      document
+        .getElementById("confirmFix")
+        .addEventListener("click", closeModal);
     </script>
   </body>
 </html>
