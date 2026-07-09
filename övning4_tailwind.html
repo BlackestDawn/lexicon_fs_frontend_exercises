@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dashboard for SmartParking AB administrative pages."
+    />
+    <title>SmartPark Admin</title>
+    <link href="./%C3%B6vning4_tailwind.css" rel="stylesheet" />
+  </head>
+  <body class="">
+    <header class="text-center text-amber-50 bg-black py-4">
+      <h1 class="text-4xl">SmartParking Administratörssida</h1>
+    </header>
+
+    <div class="grid grid-cols-[1fr_3fr] auto-rows-min">
+      <section
+        class="col-span-full md:col-span-1 md:row-span-2 shrink md:shrink-0"
+      >
+        <nav class="px-3 py-4">
+          <ul class="flex md:flex-col gap-2 grow">
+            <li class="border rounded-md bg-blue-600 text-amber-50 p-1.5 md:pl-4">
+              <a href="#" class="" aria-current="page"
+                >Översikt</a
+              >
+            </li>
+            <li class="border rounded-md border-gray-600 p-1.5 md:pl-4">
+              <a href="#" class="">Kameravyer</a>
+            </li>
+            <li class="border rounded-md border-gray-600 p-1.5 md:pl-4">
+              <a href="#" class="">Prisinställningar</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <div class="col-span-full md:col-span-1">
+        <main class="grow py-4 px-4">
+          <h2 class="text-3xl font-bold pb-4">Garageplan A - Status</h2>
+          <div class="flex gap-8 px-8 pb-4">
+            <div
+              class="grow h-25 border rounded-md border-l-4 border-l-green-500 p-2"
+            >
+              <div class="md:px-4">
+                <p class="font-light mb-1">Dagens intäkter</p>
+                <p class="text-2xl font-bold mb-0">4 500 kr</p>
+              </div>
+            </div>
+            <div
+              class="grow h-25 border rounded-md border-l-4 border-l-blue-600 p-2"
+            >
+              <div class="md:px-4">
+                <p class="font-light mb-1">Aktuell beläggning</p>
+                <p class="text-2xl font-bold mb-0">87%</p>
+              </div>
+            </div>
+            <div
+              class="grow h-25 border rounded-md border-l-4 border-l-red-600 p-2"
+            >
+              <div class="md:px-4">
+                <p class="font-light mb-1">Felanmälda rutor</p>
+                <p class="flex justify-between items-center mb-0">
+                  <span class="text-2xl font-bold">3 st</span>
+                  <span class="text-white bg-red-600 p-2 rounded-sm"
+                    >Åtgärd krävs</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-2xl font-bold pb-4">Senaste Aktiviteter</h3>
+          <div class="flex grow pb-4 pl-4 pr-8">
+            <table class="table-auto border-separate border-spacing-y-1 grow">
+              <thead>
+                <tr class="text-left">
+                  <th>Registreringsnr</th>
+                  <th>Tid incheckad</th>
+                  <th>Ruta</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="odd:bg-gray-100 even:bg-white">
+                  <td class="border-t border-gray-500 uppercase py-2">gty-629</td>
+                  <td class="border-t border-gray-500 py-2">2026-07-08 16:30</td>
+                  <td class="border-t border-gray-500 py-2">34</td>
+                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-green-700 py-1 px-2 rounded-sm">Aktiv</span></td>
+                </tr>
+                <tr class="odd:bg-gray-100 even:bg-white">
+                  <td class="border-t border-gray-500 uppercase py-2">dvg-329</td>
+                  <td class="border-t border-gray-500 py-2">2026-07-08 16:27</td>
+                  <td class="border-t border-gray-500 py-2">59</td>
+                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-green-700 py-1 px-2 rounded-sm">Aktiv</span></td>
+                </tr>
+                <tr class="odd:bg-gray-100 even:bg-white">
+                  <td class="border-t border-gray-500 uppercase py-2">tyc-610</td>
+                  <td class="border-t border-gray-500 py-2">2026-07-08 15:30</td>
+                  <td class="border-t border-gray-500 py-2">63</td>
+                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-gray-600 py-1 px-2 rounded-sm">Avslutad</span></td>
+                </tr>
+                <tr class="odd:bg-gray-100 even:bg-white">
+                  <td class="border-t border-gray-500 uppercase py-2">wbp-548</td>
+                  <td class="border-t border-gray-500 py-2">2026-07-08 15:21</td>
+                  <td class="border-t border-gray-500 py-2">12</td>
+                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-green-700 py-1 px-2 rounded-sm">Aktiv</span></td>
+                </tr>
+                <tr class="odd:bg-gray-100 even:bg-white">
+                  <td class="border-t border-gray-500 uppercase py-2">hqa-557</td>
+                  <td class="border-t border-gray-500 py-2">2026-07-08 14:57</td>
+                  <td class="border-t border-gray-500 py-2">32</td>
+                  <td class="border-t border-gray-500 py-2"><span class="text-white bg-green-700 py-1 px-2 rounded-sm">Aktiv</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-2xl font-bold pb-4">Aktuella felanmälningar</h3>
+          <ul class="flex flex-col gap-2 px-4 mb-4">
+            <li class="border-b border-gray-200 pb-2">
+              <div class="flex justify-between">
+                <p><span class="text-red-600">Ruta 16: </span>Lampa trasig</p>
+                <button
+                  type="button"
+                  class="text-white bg-red-600 p-2 rounded-sm js-open-modal"
+                  data-ruta="16"
+                  data-fel="Lampa trasig"
+                >
+                  Åtgärda
+                </button>
+              </div>
+            </li>
+            <li class="border-b border-gray-200 pb-2">
+              <div class="flex justify-between">
+                <p>
+                  <span class="text-red-600">Ruta 02: </span>Laddstolpe trasig
+                </p>
+                <button
+                  type="button"
+                  class="text-white bg-red-600 p-2 rounded-sm js-open-modal"
+                  data-ruta="02"
+                  data-fel="Laddstolpe trasig"
+                >
+                  Åtgärda
+                </button>
+              </div>
+            </li>
+            <li class="pb-2">
+              <div class="flex justify-between">
+                <p>
+                  <span class="text-red-600">Ruta 42: </span>Markeringar saknas
+                </p>
+                <button
+                  type="button"
+                  class="text-white bg-red-600 p-2 rounded-sm js-open-modal"
+                  data-ruta="42"
+                  data-fel="Markeringar saknas"
+                >
+                  Åtgärda
+                </button>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Modal -->
+          <div
+            class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50"
+            id="confirmModal"
+            tabindex="-1"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="confirmModalLabel"
+            aria-hidden="true"
+          >
+            <div class="bg-white rounded-md shadow-lg w-full max-w-md mx-4">
+              <div class="flex items-center justify-between border-b border-gray-200 p-4">
+                <h3 class="text-lg font-semibold" id="confirmModalLabel">
+                  Bekräfta åtgärd slutförd
+                </h3>
+                <button
+                  type="button"
+                  id="modalClose"
+                  class="text-gray-500 hover:text-gray-800 text-xl leading-none"
+                  aria-label="Stäng"
+                >
+                  &times;
+                </button>
+              </div>
+              <div class="p-4">
+                <p>
+                  Bekräfta att felet vid <span id="modalRuta"></span> har
+                  åtgärdats.
+                </p>
+              </div>
+              <div class="flex justify-end gap-2 border-t border-gray-200 p-4">
+                <button
+                  type="button"
+                  id="modalCancel"
+                  class="px-4 py-2 rounded-md border border-gray-400"
+                >
+                  Avbryt
+                </button>
+                <button
+                  type="button"
+                  id="confirmFix"
+                  class="px-4 py-2 rounded-md bg-blue-600 text-white"
+                >
+                  Bekräfta
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="text-center text-amber-50 bg-black py-4">
+          <p>2026 SmartParking AB - Internkontroll</p>
+        </footer>
+      </div>
+    </div>
+    <script>
+      const confirmModal = document.getElementById("confirmModal");
+      const modalRuta = document.getElementById("modalRuta");
+
+      function openModal(button) {
+        const ruta = button.getAttribute("data-ruta");
+        const fel = button.getAttribute("data-fel");
+        modalRuta.textContent = `ruta ${ruta} (${fel})`;
+
+        confirmModal.classList.remove("hidden");
+        confirmModal.classList.add("flex");
+        confirmModal.setAttribute("aria-hidden", "false");
+      }
+
+      function closeModal() {
+        confirmModal.classList.add("hidden");
+        confirmModal.classList.remove("flex");
+        confirmModal.setAttribute("aria-hidden", "true");
+      }
+
+      document.querySelectorAll(".js-open-modal").forEach((button) => {
+        button.addEventListener("click", () => openModal(button));
+      });
+
+      document.getElementById("modalClose").addEventListener("click", closeModal);
+      document.getElementById("modalCancel").addEventListener("click", closeModal);
+      confirmModal.addEventListener("click", (event) => {
+        if (event.target === confirmModal) closeModal();
+      });
+
+      document.getElementById("confirmFix").addEventListener("click", closeModal);
+    </script>
+  </body>
+</html>
