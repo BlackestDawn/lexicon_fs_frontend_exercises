@@ -73,7 +73,7 @@
 
         <hr>
 
-        <button id="btn-visa">Visa produkter</button>
+        <button type="button" id="btn-visa">Visa produkter</button>
         <ul id="produkt-lista">
             </ul>
     </div>
@@ -114,6 +114,24 @@
         // Lägg till en addEventListener('click', () => { ... }) på knappen.
         // Loopa arrayen och använd document.createElement('li') för att bygga listan.
 
+        const infoBox = document.querySelector(".info-box")
+        const btnVisa = document.querySelector("#btn-visa");
+        const prodList = document.querySelector("#produkt-lista");
+        const clickCount = document.createElement("p");
+        let visaClicked = 0;
+
+        infoBox.insertBefore(clickCount, prodList);
+
+        btnVisa.addEventListener("click", () => {
+          prodList.replaceChildren();
+          clickCount.innerText = `Visa-knappen klickad ${++visaClicked} gånger.`
+          produkter.forEach(prod => {
+            const listNode = document.createElement("li");
+            const textNode = document.createTextNode(`${prod.namn} - ${prod.pris} kr`);
+            listNode.appendChild(textNode);
+            prodList.appendChild(listNode);
+          })
+        })
 
 
         // ==========================================================================
