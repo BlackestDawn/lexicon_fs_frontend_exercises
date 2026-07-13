@@ -125,10 +125,17 @@
         btnVisa.addEventListener("click", () => {
           prodList.replaceChildren();
           clickCount.innerText = `Visa-knappen klickad ${++visaClicked} gånger.`
-          produkter.forEach(prod => {
+          produkter.forEach((prod, i) => {
             const listNode = document.createElement("li");
             const textNode = document.createTextNode(`${prod.namn} - ${prod.pris} kr`);
+            const btnRemove = document.createElement("button")
+            btnRemove.innerText = "Ta bort";
+            btnRemove.classList.add("btn-ta-bort");
+
             listNode.appendChild(textNode);
+            listNode.appendChild(btnRemove);
+
+            btnRemove.addEventListener("click", () => prodList.removeChild(listNode))
             prodList.appendChild(listNode);
           })
         })
