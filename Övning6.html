@@ -118,6 +118,9 @@
         const btnVisa = document.querySelector("#btn-visa");
         const prodList = document.querySelector("#produkt-lista");
         const clickCount = document.createElement("p");
+
+        const removeFromProdList = e => prodList.removeChild(e.target.parentElement)
+
         let visaClicked = 0;
 
         infoBox.insertBefore(clickCount, prodList);
@@ -132,7 +135,7 @@
             const btnRemove = document.createElement("button")
             btnRemove.innerText = "Ta bort";
             btnRemove.classList.add("btn-ta-bort");
-            btnRemove.addEventListener("click", () => prodList.removeChild(listNode))
+            btnRemove.addEventListener("click", removeFromProdList);
 
             listNode.appendChild(btnRemove);
             prodList.appendChild(listNode);
