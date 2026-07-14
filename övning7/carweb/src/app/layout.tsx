@@ -32,17 +32,17 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <header className="bg-gray-200 dark:bg-gray-500">
-          <BaseBox>
+          <BaseBox className="py-3">
             <SiteHeader />
           </BaseBox>
         </header>
 
         <main>
-          <BaseBox>{children}</BaseBox>
+          <BaseBox className="py-2">{children}</BaseBox>
         </main>
 
         <footer className="bg-gray-200 dark:bg-gray-500">
-          <BaseBox>
+          <BaseBox className="py-8">
             <SiteFooter />
           </BaseBox>
         </footer>
