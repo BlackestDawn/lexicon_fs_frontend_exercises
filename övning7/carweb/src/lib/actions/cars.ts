@@ -6,6 +6,8 @@ import { Car } from "../data/interfaces";
 export async function getCarsAction(): Promise<Car[]> {
   const url = `${API_URL}cars`;
 
+  console.log(`fetching: ${url}`);
+
   const response = await fetch(url, {
     method: "GET",
   });
