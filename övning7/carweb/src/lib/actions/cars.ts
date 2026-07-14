@@ -2,9 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { API_URL } from "../data/consts";
-import { Car } from "../data/interfaces";
+import { CarDto } from "../data/interfaces";
 
-export async function getCarsAction(): Promise<Car[]> {
+export async function getCarsAction(): Promise<CarDto[]> {
   const url = `${API_URL}cars`;
 
   console.log(`fetching: ${url}`);
