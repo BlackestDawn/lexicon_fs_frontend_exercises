@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cars Handling Inc",
+  title: "Car Handlers Inc",
   description: "Exercise project for talking to a web API",
 };
 
