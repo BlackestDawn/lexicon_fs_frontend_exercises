@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { API_URL } from "../data/consts";
-import { CarDto } from "../data/interfaces";
+import { CarDto, CarForChangeDto } from "../data/interfaces";
 
 export async function getCarsAction(): Promise<CarDto[]> {
   const url = `${API_URL}cars`;
@@ -25,7 +25,26 @@ export async function deleteCarAction(id: number) {
   const response = await fetch(url, {
     method: "DELETE",
   });
-  if (!response.ok) throw new Error(`Response status delete: ${response.status}`)
+  if (!response.ok)
+    throw new Error(`Response status delete: ${response.status}`);
 
   revalidatePath("/");
+}
+
+export async function updateCarAction(id: number, data: CarForChangeDto) {
+  const url = `${API_URL}cars/${id}`;
+
+  console.log(`updating car id: ${id}`);
+
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  if (!response.ok)
+    throw new Error(`Response status update: ${response.status}`);
+
+  revalidatePath(`/`);
 }
