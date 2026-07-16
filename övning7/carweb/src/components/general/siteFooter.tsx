@@ -1,4 +1,4 @@
-export function SiteFooter() {
+export default function SiteFooter() {
   const d = new Date();
   const year = d.getUTCFullYear();
 
