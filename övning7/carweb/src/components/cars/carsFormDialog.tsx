@@ -131,7 +131,7 @@ export default function CarsFormDialog({
             />
           </div>
           <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse gap-3">
-            <button type="submit" className="capitalize">{isPending?`${changeMode}ing...`:`${changeMode} car`}</button>
+            <button type="submit" className="capitalize">{isPending?`${changeMode.substring(0, -2)}ing...`:`${changeMode}`}</button>
             <button type="button" onClick={onClose}>Cancel</button>
           </div>
         </form>
