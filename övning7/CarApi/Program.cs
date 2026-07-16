@@ -47,12 +47,30 @@ using (var scope = app.Services.CreateScope())
 
     if (!db.Cars.Any())
     {
-        db.Cars.AddRange(
-            new Car { Id = 1, Brand = "Volvo", Model = "244 GL", Year = 1978, Color = "Blå" },
-            new Car { Id = 2, Brand = "Saab", Model = "900 T", Year = 1980, Color = "Röd" },
-            new Car { Id = 3, Brand = "Volvo", Model = "245 GLT", Year = 1979, Color = "Vit" },
-            new Car { Id = 4, Brand = "Opel", Model = "Ascona", Year = 1977, Color = "Brun" }
-        );
+        var brands = new[]
+        {
+            "Volvo", "Saab", "Opel", "Volkswagen", "Ford", "Toyota", "BMW", "Mercedes-Benz",
+            "Audi", "Peugeot", "Renault", "Fiat", "Skoda", "Mazda", "Nissan", "Honda",
+            "Citroën", "Subaru", "Kia", "Hyundai"
+        };
+        var models = new[]
+        {
+            "244 GL", "900 T", "245 GLT", "Ascona", "Golf", "Escort", "Corolla", "3-serie",
+            "190 E", "80", "205", "Clio", "Panda", "Octavia", "323", "Civic",
+            "Berlingo", "Impreza", "Rio", "i30"
+        };
+        var colors = new[] { "Blå", "Röd", "Vit", "Brun", "Svart", "Grön", "Grå", "Silver", "Gul", "Orange" };
+
+        var cars = Enumerable.Range(1, 100).Select(id => new Car
+        {
+            Id = id,
+            Brand = brands[id % brands.Length],
+            Model = models[(id * 7) % models.Length],
+            Year = 1970 + (id * 13) % 55,
+            Color = colors[(id * 3) % colors.Length]
+        });
+
+        db.Cars.AddRange(cars);
         db.SaveChanges();
     }
 }
