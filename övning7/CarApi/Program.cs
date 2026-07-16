@@ -40,6 +40,32 @@ app.UseCors();
 // 3. SEEDING: Lägg till startdata om databasen är tom
 // =========================================================
 #region
+static IEnumerable<Car> GenerateSeedCars()
+{
+    var brands = new[]
+    {
+        "Volvo", "Saab", "Opel", "Volkswagen", "Ford", "Toyota", "BMW", "Mercedes-Benz",
+        "Audi", "Peugeot", "Renault", "Fiat", "Skoda", "Mazda", "Nissan", "Honda",
+        "Citroën", "Subaru", "Kia", "Hyundai"
+    };
+    var models = new[]
+    {
+        "244 GL", "900 T", "245 GLT", "Ascona", "Golf", "Escort", "Corolla", "3-serie",
+        "190 E", "80", "205", "Clio", "Panda", "Octavia", "323", "Civic",
+        "Berlingo", "Impreza", "Rio", "i30"
+    };
+    var colors = new[] { "Blå", "Röd", "Vit", "Brun", "Svart", "Grön", "Grå", "Silver", "Gul", "Orange" };
+
+    return Enumerable.Range(1, 100).Select(id => new Car
+    {
+        Id = id,
+        Brand = brands[id % brands.Length],
+        Model = models[(id * 7) % models.Length],
+        Year = 1970 + (id * 13) % 55,
+        Color = colors[(id * 3) % colors.Length]
+    });
+}
+
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<VehicleContext>();
@@ -47,30 +73,7 @@ using (var scope = app.Services.CreateScope())
 
     if (!db.Cars.Any())
     {
-        var brands = new[]
-        {
-            "Volvo", "Saab", "Opel", "Volkswagen", "Ford", "Toyota", "BMW", "Mercedes-Benz",
-            "Audi", "Peugeot", "Renault", "Fiat", "Skoda", "Mazda", "Nissan", "Honda",
-            "Citroën", "Subaru", "Kia", "Hyundai"
-        };
-        var models = new[]
-        {
-            "244 GL", "900 T", "245 GLT", "Ascona", "Golf", "Escort", "Corolla", "3-serie",
-            "190 E", "80", "205", "Clio", "Panda", "Octavia", "323", "Civic",
-            "Berlingo", "Impreza", "Rio", "i30"
-        };
-        var colors = new[] { "Blå", "Röd", "Vit", "Brun", "Svart", "Grön", "Grå", "Silver", "Gul", "Orange" };
-
-        var cars = Enumerable.Range(1, 100).Select(id => new Car
-        {
-            Id = id,
-            Brand = brands[id % brands.Length],
-            Model = models[(id * 7) % models.Length],
-            Year = 1970 + (id * 13) % 55,
-            Color = colors[(id * 3) % colors.Length]
-        });
-
-        db.Cars.AddRange(cars);
+        db.Cars.AddRange(GenerateSeedCars());
         db.SaveChanges();
     }
 }
@@ -123,6 +126,16 @@ app.MapDelete("/api/cars/{id:int}", async (int id, VehicleContext db) =>
     db.Cars.Remove(car);
     await db.SaveChangesAsync();
     return Results.Ok(new { Message = $"Bilen med ID {id} har raderats." });
+});
+
+// RESET (POST /api/cars/reset) - Återställ databasen till startdata
+app.MapPost("/api/cars/reset", async (VehicleContext db) =>
+{
+    db.Cars.RemoveRange(db.Cars);
+    db.Cars.AddRange(GenerateSeedCars());
+    await db.SaveChangesAsync();
+
+    return Results.NoContent();
 });
 #endregion
 app.Run();
