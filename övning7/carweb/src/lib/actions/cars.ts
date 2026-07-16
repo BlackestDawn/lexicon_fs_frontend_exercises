@@ -52,7 +52,7 @@ export async function updateCarAction(id: number, data: CarForChangeDto) {
 export async function createCarAction(data: CarForChangeDto) {
   const url = `${API_URL}cars`;
 
-  console.log(`creating new car`);
+  console.log("creating new car");
 
   const response = await fetch(url, {
     method: "POST",
@@ -63,6 +63,19 @@ export async function createCarAction(data: CarForChangeDto) {
   });
   if (!response.ok)
     throw new Error(`Response status create: ${response.status}`);
+
+  revalidatePath(`/`);
+}
+
+export async function carsResetAction() {
+  const url = `${API_URL}cars/reset`;
+
+  console.log("resetting DB");
+
+  const response = await fetch(url, {
+    method: "POST",
+  });
+  if (!response.ok) throw new Error(`Response status: ${response.status}`);
 
   revalidatePath(`/`);
 }
