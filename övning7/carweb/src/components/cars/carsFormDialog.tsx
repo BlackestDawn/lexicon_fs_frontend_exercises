@@ -57,9 +57,9 @@ export default function CarsFormDialog({
   return (
     <dialog
       ref={dialogRef}
-      className="m-auto backdrop:bg-black/50 dark:backdrop:bg-gray-600/50"
+      className="m-auto text-black dark:text-gray-100 bg-amber-50 dark:bg-gray-800 backdrop:bg-black/50 dark:backdrop:bg-gray-600/50 rounded-lg"
     >
-      <div className="p-1">
+      <div className="p-2 m-2 border-2 border-gray-700 dark:border-gray-300 rounded-lg">
         <div className="flex justify-between p-2 ">
           <p className="capitalize">{`${changeMode}`} car</p>
           <button
@@ -67,13 +67,16 @@ export default function CarsFormDialog({
             disabled={isPending}
             onClick={onClose}
             className="text-black dark:text-white bg-white dark:bg-gray-800 rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+            aria-label="close dialog"
           >
             <X className="h-6 w-6" />
           </button>
         </div>
         <form action={handleSubmit}>
           <div>
-            <label htmlFor="brand">Brand:</label>
+            <label htmlFor="brand" className="block text-sm font-medium">
+              Brand:
+            </label>
             <input
               id="brand"
               type="text"
@@ -83,11 +86,14 @@ export default function CarsFormDialog({
                 setFormData({ ...formData, brand: e.target.value })
               }
               disabled={isPending}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter brand name"
             />
           </div>
           <div>
-            <label htmlFor="model">Model:</label>
+            <label htmlFor="model" className="block text-sm font-medium">
+              Model:
+            </label>
             <input
               id="model"
               type="text"
@@ -97,11 +103,14 @@ export default function CarsFormDialog({
                 setFormData({ ...formData, model: e.target.value })
               }
               disabled={isPending}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter model name"
             />
           </div>
           <div>
-            <label htmlFor="year">Year:</label>
+            <label htmlFor="year" className="block text-sm font-medium">
+              Year:
+            </label>
             <input
               id="year"
               type="number"
@@ -113,11 +122,14 @@ export default function CarsFormDialog({
                 setFormData({ ...formData, year: Number(e.target.value) })
               }
               disabled={isPending}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter manufacturing year"
             />
           </div>
           <div>
-            <label htmlFor="color">Color:</label>
+            <label htmlFor="color" className="block text-sm font-medium">
+              Color:
+            </label>
             <input
               id="color"
               type="text"
@@ -127,12 +139,26 @@ export default function CarsFormDialog({
                 setFormData({ ...formData, color: e.target.value })
               }
               disabled={isPending}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter color"
             />
           </div>
           <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse gap-3">
-            <button type="submit" className="capitalize">{isPending?`${changeMode.substring(0, -2)}ing...`:`${changeMode}`}</button>
-            <button type="button" onClick={onClose}>Cancel</button>
+            <button
+              type="submit"
+              className="capitalize px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            >
+              {isPending
+                ? `${changeMode.substring(0, -2)}ing...`
+                : `${changeMode}`}
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>
