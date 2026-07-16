@@ -40,3 +40,25 @@ Utgår från en färdig produktlista och byggs upp i tre nivåer:
 - **Nivå 1:** Använda `.filter()`, `.map()` och `.reduce()` för att filtrera hårdvaruprodukter, göra om produktnamn till versaler och beräkna totalpris — allt loggat i konsolen.
 - **Nivå 2:** Flytta ut logiken till DOM:en — en knapp som via `addEventListener` listar alla produkter i en `<ul>`.
 - **Nivå 3:** Lägga till en "Ta bort"-knapp per produkt som via `e.target` tar bort raden från listan.
+
+## Övning 7 — Cars (Full CRUD mot ett C# Web API)
+**Filer:** `övning7/CarApi` (backend), `övning7/carweb` (frontend)
+**Fokus:** Fullständig CRUD mot ett eget C# Minimal API — `fetch`, `async`/`await`, samt (i den här lösningen) Next.js Server Actions och cache-revalidering istället för ren DOM-manipulation.
+
+Uppgiften bytte ut den föreslagna HTML/JavaScript-frontenden mot en fullstack-lösning: ett C# Minimal API (`CarApi`, SQLite via EF Core) och en Next.js/Tailwind-frontend (`carweb`) som pratar med det via Server Actions. Funktionalitet: lista, skapa, redigera och ta bort bilar, samt en "Reset DB"-knapp som återställer databasen till 100 genererade exempelbilar.
+
+**Kom igång:**
+1. **Backend** — i `övning7/CarApi`:
+   ```bash
+   dotnet run --launch-profile https
+   ```
+   API:et startar på `https://localhost:7048` (Swagger på `/swagger`) och seedar databasen automatiskt vid första körning.
+2. **Frontend** — i `övning7/carweb`:
+   ```bash
+   npm install
+   echo "NODE_TLS_REJECT_UNAUTHORIZED=0" > .env
+   npm run dev
+   ```
+   Öppna `http://localhost:3000`. Frontenden pratar mot `https://localhost:7048/api/` som standard (kan ändras via `NEXT_PUBLIC_API_URL` i `.env`).
+
+**Förutsättningar:** .NET 10 SDK och Node.js (med npm).
