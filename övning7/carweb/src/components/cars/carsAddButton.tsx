@@ -22,7 +22,7 @@ export default function CarsAddButton() {
         type="button"
         onClick={() => setShowDialog(true)}
         disabled={isPending}
-        className="px-8 py-2 bg-blue-500 dark:bg-blue-700"
+        className="px-8 py-2 bg-blue-500 dark:bg-blue-700 rounded-lg"
       >
         Add Car
       </button>
