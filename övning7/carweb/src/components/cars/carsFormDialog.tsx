@@ -57,22 +57,22 @@ export default function CarsFormDialog({
   return (
     <dialog
       ref={dialogRef}
-      className="m-auto text-black dark:text-gray-100 bg-amber-50 dark:bg-gray-800 backdrop:bg-black/50 dark:backdrop:bg-gray-600/50 rounded-lg"
+      className="m-auto w-full max-w-md rounded-lg bg-amber-50 text-black backdrop:bg-black/50 dark:bg-zinc-800 dark:text-zinc-100 dark:backdrop:bg-black/70"
     >
-      <div className="p-2 m-2 border-2 border-gray-700 dark:border-gray-300 rounded-lg">
-        <div className="flex justify-between p-2 ">
-          <p className="capitalize">{`${changeMode}`} car</p>
+      <div className="rounded-lg border-2 border-zinc-700 p-4 dark:border-zinc-300">
+        <div className="flex items-center justify-between pb-3">
+          <p className="text-lg font-semibold capitalize">{changeMode} car</p>
           <button
             type="button"
             disabled={isPending}
             onClick={onClose}
-            className="text-black dark:text-white bg-white dark:bg-gray-800 rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
-            aria-label="close dialog"
+            className="rounded-md bg-white p-1 text-black transition-colors hover:text-zinc-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 dark:bg-zinc-800 dark:text-white dark:hover:text-zinc-400"
+            aria-label="Close dialog"
           >
             <X className="h-6 w-6" />
           </button>
         </div>
-        <form action={handleSubmit}>
+        <form action={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="brand" className="block text-sm font-medium">
               Brand:
@@ -86,7 +86,7 @@ export default function CarsFormDialog({
                 setFormData({ ...formData, brand: e.target.value })
               }
               disabled={isPending}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-900"
               placeholder="Enter brand name"
             />
           </div>
@@ -103,7 +103,7 @@ export default function CarsFormDialog({
                 setFormData({ ...formData, model: e.target.value })
               }
               disabled={isPending}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-900"
               placeholder="Enter model name"
             />
           </div>
@@ -122,7 +122,7 @@ export default function CarsFormDialog({
                 setFormData({ ...formData, year: Number(e.target.value) })
               }
               disabled={isPending}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-900"
               placeholder="Enter manufacturing year"
             />
           </div>
@@ -139,23 +139,23 @@ export default function CarsFormDialog({
                 setFormData({ ...formData, color: e.target.value })
               }
               disabled={isPending}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-900"
               placeholder="Enter color"
             />
           </div>
-          <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse gap-3">
+          <div className="flex flex-row-reverse gap-3 pt-2">
             <button
               type="submit"
-              className="capitalize px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              disabled={isPending}
+              className="rounded-md bg-blue-500 px-4 py-2 font-medium capitalize text-white shadow-sm transition-colors hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 dark:bg-blue-700 dark:hover:bg-blue-600"
             >
-              {isPending
-                ? `${changeMode.substring(0, -2)}ing...`
-                : `${changeMode}`}
+              {isPending ? `${changeMode.slice(0, -1)}ing...` : changeMode}
             </button>
             <button
               type="button"
               onClick={onClose}
-              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              disabled={isPending}
+              className="rounded-md border border-zinc-300 px-4 py-2 font-medium shadow-sm transition-colors hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 dark:border-zinc-600 dark:hover:bg-zinc-700"
             >
               Cancel
             </button>

@@ -20,11 +20,13 @@ export default function CarsEditButton({ data }: { data: CarDto }) {
   return (
     <>
       <button
+        type="button"
         onClick={() => setShowDialog(true)}
         disabled={isPending}
-        className="p-1 bg-blue-500 dark:bg-blue-800 rounded-lg disabled:opacity-50"
+        aria-label="Edit car"
+        className="rounded-lg bg-blue-500 p-1.5 text-white transition-colors hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 dark:bg-blue-800 dark:hover:bg-blue-700 dark:focus-visible:ring-offset-zinc-900"
       >
-        <Pencil />
+        <Pencil className="h-5 w-5" />
       </button>
 
       {showDialog && (

@@ -31,17 +31,17 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="bg-gray-200 dark:bg-gray-500">
+        <header className="bg-zinc-200 dark:bg-zinc-800">
           <BaseBox className="py-3">
             <SiteHeader />
           </BaseBox>
         </header>
 
-        <main>
-          <BaseBox className="py-2">{children}</BaseBox>
+        <main className="flex flex-1 flex-col">
+          <BaseBox className="flex flex-1 flex-col py-2">{children}</BaseBox>
         </main>
 
-        <footer className="bg-gray-200 dark:bg-gray-500">
+        <footer className="bg-zinc-200 dark:bg-zinc-800">
           <BaseBox className="py-8">
             <SiteFooter />
           </BaseBox>
